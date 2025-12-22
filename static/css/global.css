@@ -1,0 +1,180 @@
+body {
+  margin: 0;
+  width: auto;
+  line-height: normal;
+}
+
+:root {
+  /* fonts */
+  --font-inter: Inter;
+  --font-lexend: Lexend;
+  --font-lato: Lato;
+
+  /* font sizes */
+  --font-size-16xl: 35px;
+  --font-size-31xl: 50px;
+  --font-size-21xl: 40px;
+
+  /* Colors */
+  --color-darkslateblue: #3b4a7a;
+  --color-white: #fff;
+  --color-steelblue: #95a0d8;
+  --color-cornflowerblue: #4f6ebc;
+  --color-lightslategray: #7b84a5;
+  --color-gray: #1f2845;
+  --color-black: #000;
+
+  /* border radiuses */
+  --br-xl: 20px;
+  --br-31xl: 50px;
+  --br-25xl: 44px;
+  --br-26xl: 45px;
+  --br-11xl: 30px;
+}
+
+
+.value, .stat-value, .right, .num, .numbers, .data {
+  color: #fff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: inline !important;
+}
+
+input, select, option {
+  color: #000;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #1b2240;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+/* Centered page container */
+.page,
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* =========================
+   HEADER / NAV
+   ========================= */
+
+header,
+.topbar {
+  background: #9aa1cf;
+  padding: 18px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 60px;
+}
+
+/* =========================
+   CONTROLS (buttons, dropdowns)
+   ========================= */
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 24px 0;
+}
+
+button,
+select {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* =========================
+   GRID SYSTEM
+   ========================= */
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* =========================
+   CARDS
+   ========================= */
+
+.card {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  padding: 14px;
+}
+
+/* =========================
+   IMAGES & TABLES
+   ========================= */
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.hero-img {
+  height: 420px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.table-img {
+  height: 420px;
+  width: 100%;
+  object-fit: contain;
+  border-radius: 14px;
+}
+
+@media (max-width: 900px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-img,
+  .table-img {
+    height: 360px;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  zoom: 1;
+  transform: none;
+}
+

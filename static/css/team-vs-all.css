@@ -1,0 +1,560 @@
+.team-vs-all-child {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: var(--color-steelblue);
+  position: absolute;
+  top: 190px;
+  left: 30px;
+  border-radius: var(--br-31xl);
+  width: 59px;
+  height: 50px;
+}
+.team-vs-all-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 165px;
+  object-fit: cover;
+}
+.indian-premier-league-logo-png-icon5,
+.team-vs-all-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 305.41px;
+  height: 167px;
+  object-fit: cover;
+}
+.team-vs-all-inner {
+  top: 30px;
+  left: 809px;
+  border-radius: var(--br-31xl);
+  width: 356px;
+  height: 98px;
+}
+.team-vs-all1 {
+  cursor: pointer;
+  position: absolute;
+  top: 51px;
+  left: 878.31px;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  -webkit-text-stroke: 1px rgba(0, 56, 255, 0.98);
+  transform: rotate(0.36deg);
+  transform-origin: 0 0;
+}
+.search-component-child5 {
+  border: 0;
+  background-color: var(--color-white);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: var(--br-xl);
+  padding-left:20px;
+}
+.vector-icon11 {
+  position: absolute;
+  height: 53.2%;
+  width: 2.53%;
+  top: 23.4%;
+  right: 95.75%;
+  bottom: 23.4%;
+  left: 93.72%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.group-icon8,
+.search-component8 {
+  position: absolute;
+  top: 196px;
+  left: 656px;
+  width: 699px;
+  height: 37px;
+}
+.group-icon8 {
+  height: 2.55%;
+  width: 1.69%;
+  top: 18.63%;
+  right: 23.82%;
+  bottom: 78.82%;
+  left: 68.79%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.rcb-1-icon {
+  position: absolute;
+  top: 105px;
+  left: -330px;
+  width: 1082px;
+  height: 1082px;
+}
+.csk-1-icon,
+.rr-1-icon {
+  position: absolute;
+  top: 395px;
+  left: -9px;
+  width: 442px;
+  height: 442px;
+}
+.dc-1-icon,
+.pbks-1-icon{
+  position: absolute;
+  top: 315px;
+  left: 39px;
+  width: 332px;
+  height: 632px;
+}
+.gt-1-icon {
+  position: absolute;
+  top:275px;
+  left: -138px;
+  width: 702px;
+  height: 702px;
+}
+.kkr-1-icon {
+  position: absolute;
+  top: 405px;
+  left: -9px;
+  width: 452px;
+  height: 452px;
+}
+.lsg-1-icon {
+  position: absolute;
+  top: 428px;
+  left: -9px;
+  width: 440px;
+  height: 440px;
+}
+.mi-1-icon {
+  position: absolute;
+  top: 200px;
+  left: 15px;
+  width: 852px;
+  height: 852px;
+}
+.srh-1-icon{
+  position: absolute;
+  top: 465px;
+  left: 29px;
+  width: 352px;
+  height: 352px;
+}
+.team-vs-all-child1 {
+  position: absolute;
+  top: 207px;
+  left: 411px;
+  width: 4px;
+  height: 980px;
+}
+
+.rectangle-div1{
+  position: absolute;
+  top: 327px;
+  left:450px;
+  border-radius: 27px;
+  background-color:#1F2845;
+  width: 358px;
+  height: 201px;
+}
+
+.rectangle-div2{
+  position: absolute;
+  top: 327px;
+  left:950px;
+  border-radius: 27px;
+  background-color:#1F2845;
+  width: 358px;
+  height: 201px;
+}
+
+.rectangle-div3{
+  position: absolute;
+  top: 327px;
+  left:1450px;
+  border-radius: 27px;
+  background-color:#1F2845;
+  width: 358px;
+  height: 201px;
+}
+
+.rectangle-div4{
+  position: absolute;
+  top: 600px;
+  left:450px;
+  border-radius: 27px;
+  background-color: #1F2845;
+  width: 358px;
+  height: 201px;
+}
+
+.rectangle-div5{
+  position: absolute;
+  top: 600px;
+  left:950px;
+  border-radius: 27px;
+  background-color:#1F2845;
+  width: 358px;
+  height: 201px;
+}
+
+.rectangle-div6{
+  position: absolute;
+  top: 600px;
+  left:1450px;
+  border-radius: 27px;
+  background-color: #1F2845;
+  width: 358px;
+  height: 201px;
+}
+
+.rectangle-div7{
+  position: absolute;
+  top: 873px;
+  left:450px;
+  border-radius: 27px;
+  background-color: #1F2845;
+  width: 358px;
+  height: 201px;
+}
+
+.rectangle-div8{
+  position: absolute;
+  top: 873px;
+  left:950px;
+  border-radius: 27px;
+  background-color: #1F2845;
+  width: 358px;
+  height: 201px;
+}
+
+.rectangle-div9{
+  position: absolute;
+  top: 873px;
+  left:1450px;
+  border-radius: 27px;
+  background-color: #1F2845;
+  width: 358px;
+  height: 201px;
+}
+
+.group-icon9 {
+  position: absolute;
+  border: 0;
+  background-color: transparent;
+  height: 2.78%;
+  width: 2.67%;
+  top: 18.44%;
+  right: 96.41%;
+  bottom: 77.78%;
+  left: 1.81%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  cursor: pointer;
+}
+.team-vs-all {
+  position: relative;
+  background-color: var(--color-darkslateblue);
+  width: 100%;
+  height: 1080px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-21xl);
+  color: var(--color-lightslategray);
+  font-family: var(--font-lexend);
+}
+.select-box {
+  left:600px;
+  top:220px;
+  position: absolute;
+  display: flex;
+  width: 700px;
+  flex-direction: column;
+
+}
+
+.select-box .options-container {
+  background: #1F2845;
+  color: #f5f6fa;
+  max-height: 0;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.4s;
+  overflow: hidden;
+  border-radius: 7px;
+  order: 1;
+}
+
+.selected {
+    background: #1F2845;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    color: #ffffff;
+    position: relative;
+    order: 0;
+    font-family:sans-serif;
+    font-weight:550;
+}
+
+.selected::after {
+  content: "";
+  background: url("img/arrow-down.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  height: 100%;
+  width: 32px;
+  right: 10px;
+  top: 5px;
+  transition: all 0.4s;
+}
+.select-box .options-container.active {
+  max-height: 240px;
+  opacity: 1;
+  overflow-y: scroll;
+  margin-top: 54px;
+  font-size:16px;
+  z-index:9999;
+}
+
+.select-box .options-container.active + .selected::after {
+  transform: rotateX(180deg);
+  top: -6px;
+}
+
+.select-box .options-container::-webkit-scrollbar {
+  width: 8px;
+  background: #0d141f;
+  border-radius: 8px 8px 0 0;
+}
+
+.select-box .options-container::-webkit-scrollbar-thumb {
+  background: #525861;
+  border-radius: 8px 8px 0 0;
+}
+
+.select-box .option,
+.selected {
+  padding: 12px 24px;
+  cursor: pointer;
+}
+
+.select-box .option:hover {
+  background: #414b57;
+}
+
+.select-box label {
+  cursor: pointer;
+}
+
+.select-box .option .radio {
+  display: none;
+}
+
+/* Searchbox */
+
+.search-box input {
+  width: 100%;
+  padding: 12px 16px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  position: absolute;
+  border-radius: 8px 8px 0 0;
+  z-index: 100;
+  border: 8px solid #1F2845;
+  box-sizing:border-box;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s;
+}
+
+.search-box input:focus {
+  outline: none;
+}
+
+.select-box .options-container.active ~ .search-box input {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.button1 {
+  position:absolute;
+  left:1330px;
+  top:220px;
+  border:None;
+  background-color: #1F2845;
+  color: white;
+  border-radius:8px;
+  height:43px;
+  width:100px;
+}
+
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+.csk-s1-icon{
+    position:absolute;
+    left:450px;
+    top:370px;
+    z-index:1
+}
+
+.dc-s1-icon{
+    position:absolute;
+    left:970px;
+    top:370px;
+    z-index:1
+}
+.gt-s1-icon{
+    position:absolute;
+    left:1420px;
+    top:320px;
+    z-index:1
+}
+.kkr-s1-icon{
+    position:absolute;
+    left:470px;
+    top:635px;
+    z-index:1
+}
+.lsg-s1-icon{
+    position:absolute;
+    left:950px;
+    top:625px;
+    z-index:1
+}
+.mi-s1-icon{
+    position:absolute;
+    left:1470px;
+    top:565px;
+    z-index:1
+}
+.pbks-s1-icon{
+    position:absolute;
+    left:460px;
+    top:915px;
+    z-index:1
+}
+.rcb-s1-icon{
+    position:absolute;
+    left:900px;
+    top:850px;
+    z-index:1
+}
+.rr-s1-icon{
+    position:absolute;
+    left:1455px;
+    top:900px;
+    z-index:1
+}
+.csk-s1-icon-srh{
+    position:absolute;
+    left:470px;
+    top:370px;
+    z-index:1
+}
+
+.gt-s1-icon-srh{
+    position:absolute;
+    left:1470px;
+    top:365px;
+    z-index:1
+}
+.rr-s1-icon-srh{
+    position:absolute;
+    left:1470px;
+    top:910px;
+    z-index:1
+}
+.mi-s1-icon-srh{
+    position:absolute;
+    left:1470px;
+    top:635px;
+    z-index:1
+}
+.lsg-s1-icon-srh{
+    position:absolute;
+    left:960px;
+    top:640px;
+    z-index:1
+}
+.rcb-s1-icon-srh{
+    position:absolute;
+    left:970px;
+    top:915px;
+    z-index:1
+}
+.pbks-s1-icon-srh{
+    position:absolute;
+    left:465px;
+    top:915px;
+    z-index:1
+}
+.kkr-s1-icon-srh{
+    position:absolute;
+    left:465px;
+    top:645px;
+    z-index:1
+}
+.r1l1,.r1l2,.r1l3,.r1l4,.r1l5,.r2l1,.r2l2,.r2l3,.r2l4,.r2l5,.r3l1,.r3l2,.r3l3,.r3l4,.r3l5,.r4l1,.r4l2,.r4l3,.r4l4,.r4l5,.r5l1,.r5l2,.r5l3,.r5l4,.r5l5,.r6l1,.r6l2,.r6l3,.r6l4,.r6l5,.r7l1,.r7l2,.r7l3,.r7l4,.r7l5,.r8l1,.r8l2,.r8l3,.r8l4,.r8l5,.r9l1,.r9l2,.r9l3,.r9l4,.r9l5{
+    position:absolute;
+    left:160px;
+    font-size:12px;
+    font-family:sans-serif;
+    font-weight:550;
+    color:white;
+}
+.r1l1,.r2l1,.r3l1,.r4l1,.r5l1,.r6l1,.r7l1,.r8l1,.r9l1{
+    top:35px;
+}
+.r1l2,.r2l2,.r3l2,.r4l2,.r5l2,.r6l2,.r7l2,.r8l2,.r9l2{
+    top:65px;
+}
+.r1l3,.r2l3,.r3l3,.r4l3,.r5l3,.r6l3,.r7l3,.r8l3,.r9l3{
+    top:95px;
+}
+.r1l4,.r2l4,.r3l4,.r4l4,.r5l4,.r6l4,.r7l4,.r8l4,.r9l4{
+    top:125px;
+}
+.r1l5,.r2l5,.r3l5,.r4l5,.r5l5,.r6l5,.r7l5,.r8l5,.r9l5{
+    top:155px;
+}
+.r1wl,.r2wl,.r3wl,.r4wl,.r5wl,.r6wl,.r7wl,.r8wl,.r9wl{
+    position:absolute;
+    left:295px;
+    top:32px;
+    height:140px;
+    width:1px;
+    background-color:white;
+}
+.r1l1a,.r1l2a,.r1l3a,.r1l4a,.r1l5a,.r2l1a,.r2l2a,.r2l3a,.r2l4a,.r2l5a,.r3l1a,.r3l2a,.r3l3a,.r3l4a,.r3l5a,.r4l1a,.r4l2a,.r4l3a,.r4l4a,.r4l5a,.r5l1a,.r5l2a,.r5l3a,.r5l4a,.r5l5a,.r6l1a,.r6l2a,.r6l3a,.r6l4a,.r6l5a,.r7l1a,.r7l2a,.r7l3a,.r7l4a,.r7l5a,.r8l1a,.r8l2a,.r8l3a,.r8l4a,.r8l5a,.r9l1a,.r9l2a,.r9l3a,.r9l4a,.r9l5a{
+    position:absolute;
+    left:310px;
+    font-size:12px;
+    font-family:sans-serif;
+    font-weight:550;
+    color:white;
+}
+.r1l1a,.r2l1a,.r3l1a,.r4l1a,.r5l1a,.r6l1a,.r7l1a,.r8l1a,.r9l1a{
+    top:35px;
+}
+.r1l2a,.r2l2a,.r3l2a,.r4l2a,.r5l2a,.r6l2a,.r7l2a,.r8l2a,.r9l2a{
+    top:65px;
+}
+.r1l3a,.r2l3a,.r3l3a,.r4l3a,.r5l3a,.r6l3a,.r7l3a,.r8l3a,.r9l3a{
+    top:95px;
+}
+.r1l4a,.r2l4a,.r3l4a,.r4l4a,.r5l4a,.r6l4a,.r7l4a,.r8l4a,.r9l4a{
+    top:125px;
+}
+.r1l5a,.r2l5a,.r3l5a,.r4l5a,.r5l5a,.r6l5a,.r7l5a,.r8l5a,.r9l5a{
+    top:155px;
+}

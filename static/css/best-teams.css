@@ -1,0 +1,332 @@
+.team-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 169px;
+  object-fit: cover;
+}
+.indian-premier-league-logo-png-icon7,
+.team-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 305.41px;
+  height: 167px;
+  object-fit: cover;
+}
+.team-item {
+  top: 36px;
+  left: 780px;
+  border-radius: var(--br-31xl);
+  width: 306px;
+  height: 98px;
+}
+.team-analysis {
+  cursor: pointer;
+  position: absolute;
+  top: 55px;
+  left: 825px;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  -webkit-text-stroke: 1px rgba(0, 56, 255, 0.98);
+  transform: rotate(0.36deg);
+  transform-origin: 0 0;
+}
+.search-component-child8 {
+  border: 0;
+  background-color: var(--color-white);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: var(--br-xl);
+  padding-left:20px;
+}
+.vector-icon14 {
+  position: absolute;
+  height: 53.2%;
+  width: 2.53%;
+  top: 23.4%;
+  right: 0.75%;
+  bottom: 23.4%;
+  left: 93.72%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.group-icon13,
+.search-component11 {
+  position: absolute;
+  top: 232px;
+  left: 584px;
+  width: 755px;
+  height: 37px;
+}
+.group-icon13 {
+  height: 2.64%;
+  width: 1.54%;
+  top: 21.88%;
+  right: 20.74%;
+  bottom: 75.49%;
+  left: 67.72%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.kkr-1-ficon{
+  position:absolute;
+  left:1400px;
+  top:282px;
+}
+.kkr-1-icon{
+  position: absolute;
+  top: 282px;
+  left:153px;
+}
+.csk-1-ficon{
+  position:absolute;
+  left:1180px;
+  top:172px;
+}
+.csk-1-icon{
+  position: absolute;
+  top: 172px;
+  left:-50px;
+}
+.dc-1-ficon{
+  position:absolute;
+  left:1130px;
+  top:272px;
+}
+.dc-1-icon{
+  position: absolute;
+  top: 272px;
+  left:-100px;
+}
+.gt-1-ficon{
+  position:absolute;
+  left:1030px;
+  top:62px;
+}
+.gt-1-icon{
+  position:absolute;
+  top: 62px;
+  left:-200px;
+}
+.lsg-1-ficon{
+  position:absolute;
+  left:1230px;
+  top:182px;
+}
+.lsg-1-icon{
+  position:absolute;
+  top: 182px;
+  left:-10px;
+}
+.mi-1-ficon{
+  position:absolute;
+  left:650px;
+  top:82px;
+}
+.mi-1-icon{
+  position:absolute;
+  top: 82px;
+  left:50px;
+}
+.pbks-1-ficon{
+  position:absolute;
+  left:1350px;
+  top:322px;
+}
+.pbks-1-icon{
+  position:absolute;
+  top: 322px;
+  left:80px;
+}
+.rcb-1-ficon{
+  position:absolute;
+  left:960px;
+
+}
+.rcb-1-icon{
+  position:absolute;
+  left:-250px;
+}
+.rr-1-ficon{
+  position:absolute;
+  left:1280px;
+  top:250px;
+
+}
+.rr-1-icon{
+  position:absolute;
+  left:40px;
+  top:250px;
+}
+.srh-1-ficon{
+  position:absolute;
+  left:1340px;
+  top:360px;
+
+}
+.srh-1-icon{
+  position:absolute;
+  left:80px;
+  top:360px;
+  z-index:500;
+}
+.team-inner {
+
+  position:absolute;
+  top:282px;
+  border: 0;
+  background-color: var(--color-cornflowerblue);
+  left: 675px;
+  width: 569px;
+  height: 636px;
+}
+.pandas-table {
+  position: absolute;
+  top: 554px;
+  left: 831px;
+  color: var(--color-white);
+}
+.group-icon14,
+.team-child1 {
+  position: absolute;
+  cursor: pointer;
+}
+.team-child1 {
+  border: 0;
+  padding: 0;
+  background-color: var(--color-steelblue);
+  top: 190px;
+  left: 30px;
+  border-radius: var(--br-31xl);
+  width: 59px;
+  height: 50px;
+  z-index:99999
+}
+.group-icon14 {
+  position: absolute;
+  border: 0;
+  background-color: transparent;
+  height: 2.78%;
+  width: 2.67%;
+  top: 18.44%;
+  right: 96.41%;
+  bottom: 77.78%;
+  left: 1.81%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  cursor: pointer;
+  z-index:99999
+}
+.team {
+  position: absolute;
+  background-color: var(--color-darkslateblue);
+  width: 100%;
+  height: 1080px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-21xl);
+  color: var(--color-lightslategray);
+  font-family: var(--font-lexend);
+}
+
+.pos{
+    position:absolute;
+    top:270px;
+    left:360px;
+    width:200px;
+    height:200px;
+}
+.bg{
+    position:absolute;
+    background-color: var(--color-darkslateblue);
+    width:100%;
+    height:500px;
+    top:170px;
+}
+.bt23{
+    position:absolute;
+    top:750px;
+    left:170px;
+    z-index:2;
+}
+.bt22{
+    position:absolute;
+    top:750px;
+    left:720px;
+    z-index:2;
+}
+.bt21{
+    position:absolute;
+    top:750px;
+    left:1270px;
+    z-index:2;
+}
+.bt20{
+    position:absolute;
+    top:1350px;
+    left:170px;
+    z-index:2;
+}
+.bt19{
+    position:absolute;
+    top:1350px;
+    left:720px;
+    z-index:2;
+}
+.bt18{
+    position:absolute;
+    top:1350px;
+    left:1270px;
+    z-index:2;
+}
+.bt17{
+    position:absolute;
+    top:1950px;
+    left:170px;
+    z-index:2;
+}
+.bt16{
+    position:absolute;
+    top:1950px;
+    left:720px;
+    z-index:2;
+}
+.bt15{
+    position:absolute;
+    top:1950px;
+    left:1270px;
+    z-index:2;
+}
+
+.back{
+    position:absolute;
+    top:670px;
+    width:100%;
+    height:1900px;
+    background-color: var(--color-darkslateblue);
+    z-index:1
+}
+
+/* Best Teams page ONLY */
+
+.best-teams-title {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+/* If the table needs custom colors */
+.best-teams-table {
+  background: #fff;
+  color: #000;
+}
+
