@@ -1,10 +1,3 @@
+# IPL Analytics
 
-  # IPL_WEBSITE_ORG
-
-  Note: Please ensure you have installed <code><a href="https://nodejs.org/en/download/">nodejs</a></code>
-
-  To preview and run the project on your device:
-  1) Open project folder in <a href="https://code.visualstudio.com/download">Visual Studio Code</a>
-  2) In the terminal, run `npm install`
-  3) Run `npm start` to view project in browser
-  
+IPL Analytics is a full-stack web application that presents interactive statistics and insights from the Indian Premier League (IPL), covering all seasons up to 2023. The project features a Flask-based backend that processes and serves IPL data through RESTful APIs, and a Node.js-based frontend that visualizes team-wise and player-wise performance in a clean, user-friendly interface. Designed for cricket enthusiasts and data-driven analysis, the platform demonstrates end-to-end web development, API integration, and sports analytics using real-world datasets. The application is deployed and publicly accessible, with a live demo available at [https://balajiramesh2003.pythonanywhere.com/index](https://balajiramesh2003.pythonanywhere.com/index).
