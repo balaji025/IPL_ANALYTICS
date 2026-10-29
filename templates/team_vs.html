@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}{{ team_a.short }} v {{ team_b.short }} · IPL Analytics{% endblock %}
+{% block head %}<style>:root { --accent: {{ team_a.colour }}; }</style>{% endblock %}
+
+{% block content %}
+<section class="hero dark" id="hero" data-a="{{ team_a.short }}" data-b="{{ team_b.short }}">
+  <div class="wrap">
+    <p class="eyebrow reveal" style="text-align:center">Head to head</p>
+    <div class="vs reveal" id="vs"><div class="skeleton" style="grid-column:1/-1"></div></div>
+    <div class="share reveal" id="share"></div>
+    <p class="muted reveal" id="summary" style="text-align:center;margin-top:16px"></p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:48px">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><p class="eyebrow">Form</p><h2>Last five meetings</h2></div>
+      <a class="pill light" href="/teams/{{ team_b.short }}/vs/{{ team_a.short }}">Swap sides &#8646;</a>
+    </div>
+    <div class="form reveal" id="form"></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap grid grid-2" style="gap:48px">
+    <div><p class="eyebrow reveal">{{ team_a.short }} · most runs v {{ team_b.short }}</p><div class="list" id="a-bat"></div></div>
+    <div><p class="eyebrow reveal">{{ team_b.short }} · most runs v {{ team_a.short }}</p><div class="list" id="b-bat"></div></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap grid grid-2" style="gap:48px">
+    <div><p class="eyebrow reveal">{{ team_a.short }} · most wickets v {{ team_b.short }}</p><div class="list" id="a-bowl"></div></div>
+    <div><p class="eyebrow reveal">{{ team_b.short }} · most wickets v {{ team_a.short }}</p><div class="list" id="b-bowl"></div></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal"><div><p class="eyebrow">Every meeting</p><h2>All matches</h2></div></div>
+    <div class="list" id="matches"></div>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/team_vs.js') }}"></script>
+{% endblock %}

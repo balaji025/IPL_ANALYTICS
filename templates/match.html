@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}{{ teams[match.team1].short }} v {{ teams[match.team2].short }}, {{ match.season }} · IPL Analytics{% endblock %}
+{% block head %}<style>:root { --accent: {{ teams[match.winner or match.team1].colour }}; }</style>{% endblock %}
+
+{% block content %}
+<section class="hero dark" id="hero" data-match="{{ match.match_id }}">
+  <div class="wrap">
+    <p class="eyebrow reveal">
+      <a href="/seasons/{{ match.season }}">IPL {{ match.season }}</a> ·
+      {{ match.stage if match.stage != "League" else "Match " ~ (match.match_number or "") }} ·
+      {{ match.date }} · {{ match.venue }}
+    </p>
+    <div class="grid grid-2 reveal" id="scores" style="margin-top:24px"><div class="skeleton"></div></div>
+    <h2 class="reveal" id="result" style="margin-top:36px"></h2>
+    <p class="muted reveal" id="extra" style="margin-top:12px"></p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:48px">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><p class="eyebrow">How it unfolded</p><h2 id="chart-title">Run rate worm</h2></div>
+      <div class="toggle">
+        <button class="pill light on" data-chart="worm">Worm</button>
+        <button class="pill light" data-chart="overs">Runs per over</button>
+      </div>
+    </div>
+    <div class="card reveal"><div class="chart" id="chart"></div></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap" id="scorecards"></div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+<script src="{{ url_for('static', filename='js/match.js') }}"></script>
+{% endblock %}

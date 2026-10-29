@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}{{ team.name }} · IPL Analytics{% endblock %}
+{% block head %}<style>:root { --accent: {{ team.colour }}; }</style>{% endblock %}
+
+{% block content %}
+<section class="hero dark page-hero" id="hero" data-team="{{ team.short }}">
+  <div class="wrap">
+    <div class="reveal" id="logo"></div>
+    <div class="reveal">
+      <p class="eyebrow" id="span">Franchise</p>
+      <h1 style="font-size:clamp(2.2rem,6vw,4.4rem)">{{ team.name }}</h1>
+      <div class="chips" id="titles" style="margin-top:16px"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:48px">
+  <div class="wrap">
+    <div class="grid grid-4" id="tiles"><div class="skeleton"></div></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal"><div><p class="eyebrow">Season by season</p><h2>Where they finished</h2></div></div>
+    <div class="card reveal"><div class="chart" id="finish-chart"></div></div>
+  </div>
+</section>
+
+<section class="section dark">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><p class="eyebrow">Rivalries</p><h2>Against every team</h2></div>
+    </div>
+    <div class="list" id="vs-all"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap grid grid-2" style="gap:48px">
+    <div><p class="eyebrow reveal">Most runs for the team</p><div class="list" id="top-bat"></div></div>
+    <div><p class="eyebrow reveal">Most wickets for the team</p><div class="list" id="top-bowl"></div></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap grid grid-2" style="gap:48px">
+    <div><p class="eyebrow reveal">Highest totals</p><div class="list" id="highest"></div></div>
+    <div><p class="eyebrow reveal">Lowest totals</p><div class="list" id="lowest"></div></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal"><div><p class="eyebrow">Latest</p><h2>Recent matches</h2></div></div>
+    <div class="list" id="recent"></div>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+<script src="{{ url_for('static', filename='js/team.js') }}"></script>
+{% endblock %}

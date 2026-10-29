@@ -1,0 +1,285 @@
+/* ==========================================================================
+   IPL Analytics - one stylesheet for the whole site
+   ========================================================================== */
+
+/* ---------- Design tokens ---------- */
+:root {
+  --ink: #0b0b0c;          /* near-black: text and dark sections */
+  --paper: #ffffff;
+  --soft: #f4f4f5;         /* light grey panels */
+  --line: #e7e7ea;
+  --muted: #6b6b73;
+  --accent: #2f6bff;       /* overridden per team/player page */
+  --radius: 18px;
+  --ease: cubic-bezier(.4, 0, .2, 1);
+  --fast: .2s var(--ease);
+  --slow: .6s var(--ease);
+  --max: 1180px;
+}
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.5;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3 { margin: 0; letter-spacing: -0.02em; line-height: 1.05; }
+h1 { font-size: clamp(2.6rem, 7vw, 5.5rem); font-weight: 800; }
+h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; }
+h3 { font-size: 1.1rem; font-weight: 600; }
+p { margin: 0; }
+.muted { color: var(--muted); }
+
+/* Smooth scrolling (Lenis) and page-to-page fades (View Transitions) */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+@view-transition { navigation: auto; }
+
+/* ---------- Layout ---------- */
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+.section { padding: 88px 0; }
+.section-head { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 32px; flex-wrap: wrap; }
+.eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: .75rem; font-weight: 600; color: var(--muted); margin-bottom: 12px; }
+.dark { background: var(--ink); color: #fff; }
+.dark .muted, .dark .eyebrow { color: #a1a1aa; }
+.grid { display: grid; gap: 16px; }
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.grid-4 { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+
+/* ---------- Navigation ---------- */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; gap: 24px;
+  padding: 12px 20px;
+  background: rgba(11, 11, 12, .92);
+  backdrop-filter: blur(12px);
+  color: #fff;
+}
+.brand { font-weight: 800; font-size: 1.15rem; letter-spacing: -0.02em; }
+.brand span { font-weight: 500; opacity: .7; margin-left: 4px; }
+.nav-links { display: flex; gap: 22px; font-size: .95rem; }
+.nav-links a { opacity: .75; transition: opacity var(--fast); }
+.nav-links a:hover { opacity: 1; }
+.menu-btn { display: none; margin-left: auto; background: none; border: 0; color: #fff; font-size: 1.4rem; cursor: pointer; }
+
+/* ---------- Search ---------- */
+.search { position: relative; margin-left: auto; width: min(320px, 100%); }
+.search input {
+  width: 100%; padding: 10px 16px; border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, .15); background: rgba(255, 255, 255, .08);
+  color: inherit; font: inherit; outline: none; transition: background var(--fast), border-color var(--fast);
+}
+.search input:focus { background: rgba(255, 255, 255, .14); border-color: rgba(255, 255, 255, .35); }
+.search-results {
+  position: absolute; top: calc(100% + 8px); left: 0; right: 0;
+  background: #fff; color: var(--ink); border-radius: 14px; overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .25);
+  opacity: 0; transform: translateY(-6px); pointer-events: none;
+  transition: opacity var(--fast), transform var(--fast);
+}
+.search.open .search-results { opacity: 1; transform: none; pointer-events: auto; }
+.search-results a { display: flex; align-items: center; gap: 12px; padding: 10px 14px; transition: background var(--fast); }
+.search-results a:hover, .search-results a:focus { background: var(--soft); }
+.search-results small { color: var(--muted); display: block; }
+.search.big { width: min(560px, 100%); margin: 32px 0 0; }
+.search.big input { padding: 16px 22px; font-size: 1.05rem; }
+
+/* ---------- Hero ---------- */
+.hero { padding: 96px 0 72px; position: relative; overflow: hidden; }
+.hero::after {   /* soft accent glow */
+  content: ""; position: absolute; width: 60vw; height: 60vw; right: -20vw; top: -25vw;
+  background: radial-gradient(circle, var(--accent) 0%, transparent 65%); opacity: .35; pointer-events: none;
+}
+.hero .wrap { position: relative; z-index: 1; }
+.hero-lead { font-size: clamp(1.05rem, 2vw, 1.3rem); max-width: 560px; margin-top: 20px; color: #c4c4cc; }
+.counters { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 24px; margin-top: 64px; }
+.counter b { display: block; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -0.03em; }
+
+/* ---------- Cards & tiles ---------- */
+.card {
+  background: var(--soft); border-radius: var(--radius); padding: 24px;
+  transition: transform var(--fast), box-shadow var(--fast);
+}
+a.card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0, 0, 0, .08); }
+.dark .card { background: #18181b; }
+.tile b { display: block; font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
+.tile span { color: var(--muted); font-size: .85rem; }
+.dark .tile span { color: #a1a1aa; }
+
+/* ---------- Pills, chips, buttons ---------- */
+.pill {
+  display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 999px;
+  background: var(--ink); color: #fff; font-weight: 600; font-size: .9rem; border: 0; cursor: pointer;
+  transition: transform var(--fast), background var(--fast);
+}
+.pill:hover { transform: translateY(-2px); }
+.pill.light { background: var(--soft); color: var(--ink); }
+.pill.on { background: var(--accent); color: #fff; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { padding: 6px 12px; border-radius: 999px; background: rgba(127, 127, 127, .14); font-size: .85rem; }
+
+/* ---------- Team badges ---------- */
+.badge { width: 44px; height: 44px; flex: none; object-fit: contain; }
+.badge-text {
+  display: inline-grid; place-items: center; width: 44px; height: 44px; flex: none;
+  border-radius: 50%; color: #fff; font-size: .7rem; font-weight: 800;
+}
+
+/* ---------- Player photo ---------- */
+.avatar {
+  width: 44px; height: 44px; flex: none; border-radius: 50%; object-fit: cover; object-position: top;
+  background: var(--line); display: grid; place-items: center; font-weight: 700; font-size: .8rem; color: var(--muted);
+}
+.avatar.lg { width: 96px; height: 96px; font-size: 1.4rem; }
+
+/* ---------- Horizontal scroller (seasons strip) ---------- */
+.scroller { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; scrollbar-width: none; }
+.scroller::-webkit-scrollbar { display: none; }
+.scroller > * { scroll-snap-align: start; flex: 0 0 auto; }
+
+/* ---------- Logo marquee ---------- */
+.marquee { overflow: hidden; padding: 28px 0; border-bottom: 1px solid var(--line); }
+.marquee-track { display: flex; gap: 64px; width: max-content; animation: marquee 40s linear infinite; }
+.marquee img { height: 52px; width: auto; opacity: .85; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* ---------- Lists & tables ---------- */
+.list { display: flex; flex-direction: column; }
+.row {
+  display: flex; align-items: center; gap: 14px; padding: 14px 4px;
+  border-bottom: 1px solid var(--line); transition: background var(--fast);
+}
+a.row:hover { background: var(--soft); }
+.dark .row { border-color: #27272a; }
+.dark a.row:hover { background: #18181b; }
+.row .grow { flex: 1; min-width: 0; }
+.row .num { font-weight: 800; font-variant-numeric: tabular-nums; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: .92rem; }
+th, td { padding: 12px 10px; text-align: right; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; }
+th { font-weight: 600; color: var(--muted); font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; }
+
+/* ---------- Bars (phase splits etc.) ---------- */
+.bar { height: 8px; border-radius: 999px; background: var(--line); overflow: hidden; margin-top: 10px; }
+.dark .bar { background: #27272a; }
+.bar i { display: block; height: 100%; background: var(--accent); border-radius: inherit;
+         width: 0; transition: width 1s var(--ease); }
+.in .bar i { width: var(--w); }
+
+/* ---------- Charts ---------- */
+.chart { width: 100%; height: 320px; }
+
+/* ---------- Scroll reveal ---------- */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity var(--slow), transform var(--slow); }
+.reveal.in { opacity: 1; transform: none; }
+
+/* ---------- Loading skeleton ---------- */
+.skeleton { border-radius: 12px; min-height: 120px;
+  background: linear-gradient(90deg, var(--soft) 25%, var(--line) 50%, var(--soft) 75%);
+  background-size: 200% 100%; animation: shimmer 1.2s infinite; }
+@keyframes shimmer { to { background-position: -200% 0; } }
+
+/* ---------- Footer ---------- */
+.footer { padding: 40px 20px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+          font-size: .85rem; color: var(--muted); border-top: 1px solid var(--line); }
+.footer a { text-decoration: underline; }
+
+/* ==========================================================================
+   Page: Player
+   ========================================================================== */
+.player-hero { padding: 64px 0 0; }
+.player-hero .wrap { display: grid; grid-template-columns: 1.2fr 1fr; align-items: end; gap: 32px; }
+.player-hero h1 { font-size: clamp(2.4rem, 6vw, 4.6rem); }
+.player-photo { max-height: 420px; margin: 0 auto; filter: drop-shadow(0 30px 40px rgba(0, 0, 0, .5)); }
+.player-meta { display: flex; flex-direction: column; gap: 18px; padding-bottom: 56px; }
+.player-initials { font-size: 6rem; font-weight: 800; opacity: .15; text-align: center; padding: 60px 0; }
+.toggle { display: flex; gap: 8px; }
+
+/* ==========================================================================
+   Pages: team, head-to-head, season, match, records, compare
+   ========================================================================== */
+.badge.lg, .badge-text.lg { width: 96px; height: 96px; font-size: 1.2rem; }
+.page-hero { padding: 72px 0 56px; }
+.page-hero .wrap { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+
+/* Dropdowns styled like the pills */
+.select {
+  appearance: none; padding: 10px 38px 10px 18px; border-radius: 999px; border: 0;
+  background: var(--soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b6b73' stroke-width='2' fill='none'/%3E%3C/svg%3E") no-repeat right 16px center;
+  font: inherit; font-weight: 600; font-size: .9rem; color: var(--ink); cursor: pointer;
+}
+.dark .select { background-color: #27272a; color: #fff; }
+
+/* Head-to-head hero: team | numbers | team */
+.vs { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; text-align: center; }
+.vs .big { font-size: clamp(3rem, 9vw, 6rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
+.vs .badge.lg, .vs .badge-text.lg { margin: 0 auto 12px; }
+.share { display: flex; height: 10px; border-radius: 999px; overflow: hidden; margin-top: 28px; background: #27272a; }
+.share i { display: block; height: 100%; transition: width 1s var(--ease); }
+
+/* Win/loss form dots */
+.form { display: flex; gap: 6px; }
+.form span { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center;
+             font-size: .7rem; font-weight: 800; color: #fff; }
+
+/* Scorecards */
+.scorecard td:first-child { white-space: normal; min-width: 180px; }
+.scorecard .how { display: block; color: var(--muted); font-size: .8rem; }
+.scorecard tr.total td { font-weight: 800; border-bottom: 0; }
+
+/* Full team names on wide screens, short codes on phones */
+.short-name { display: none; }
+
+/* Champions photo on the season page */
+.winners-photo { width: 100%; max-height: 560px; object-fit: cover; border-radius: var(--radius); }
+
+/* Season picker */
+.year-pills { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; }
+.year-pills::-webkit-scrollbar { display: none; }
+.year-pills a { flex: none; }
+
+/* Compare: two pickers */
+.pickers { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.pickers .search { width: 100%; margin: 0; }
+.compare-row { display: grid; grid-template-columns: 1fr 140px 1fr; gap: 12px; align-items: center;
+               padding: 12px 0; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+.compare-row > :first-child { text-align: right; }
+.compare-row .label { text-align: center; color: var(--muted); font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; }
+.compare-row b.win { color: var(--accent); }
+
+/* ==========================================================================
+   Mobile
+   ========================================================================== */
+@media (max-width: 760px) {
+  .section { padding: 64px 0; }
+  .nav { flex-wrap: wrap; gap: 12px; }
+  .menu-btn { display: block; }
+  .nav-links { display: none; order: 3; width: 100%; flex-direction: column; gap: 14px; padding: 8px 0 4px; }
+  .nav.open .nav-links { display: flex; }
+  .search { order: 4; width: 100%; margin: 0; }
+  .search.big { margin-top: 24px; }
+  .player-hero .wrap { grid-template-columns: 1fr; }
+  .player-photo { max-height: 300px; }
+  .player-meta { padding-bottom: 8px; order: 2; }
+  .hero { padding: 64px 0 56px; }
+  .vs { gap: 10px; }
+  .vs .badge.lg, .vs .badge-text.lg { width: 64px; height: 64px; }
+  .pickers { grid-template-columns: 1fr; }
+  .compare-row { grid-template-columns: 1fr 96px 1fr; }
+  .long-name { display: none; }
+  .short-name { display: inline; }
+}
+
+/* Respect people who turn animations off */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}

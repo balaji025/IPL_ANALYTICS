@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Teams · IPL Analytics{% endblock %}
+
+{% block content %}
+<section class="hero dark">
+  <div class="wrap">
+    <p class="eyebrow reveal">Franchises</p>
+    <h1 class="reveal">The teams.</h1>
+    <p class="hero-lead reveal">Every franchise's record, titles and rivalries.</p>
+    <div class="chips reveal" style="margin-top:32px;align-items:center;gap:12px">
+      <select class="select" id="vs-a"></select>
+      <span>vs</span>
+      <select class="select" id="vs-b"></select>
+      <button class="pill on" id="vs-go">Head to head &rarr;</button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal"><div><p class="eyebrow">Current</p><h2>Ten franchises</h2></div></div>
+    <div class="grid grid-3" id="current"><div class="skeleton"></div></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal"><div><p class="eyebrow">Former</p><h2>No longer playing</h2></div></div>
+    <div class="list" id="former"></div>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/teams.js') }}"></script>
+{% endblock %}

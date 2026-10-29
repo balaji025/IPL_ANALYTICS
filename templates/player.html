@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}{{ player.name }} · IPL Analytics{% endblock %}
+
+{% block content %}
+<section class="player-hero dark hero" id="hero" data-player="{{ player.player_id }}">
+  <div class="wrap">
+    <div class="player-meta">
+      <p class="eyebrow reveal">{{ player.role or "Player" }}{% if player.country %} · {{ player.country }}{% endif %}</p>
+      <h1 class="reveal">{{ player.name }}</h1>
+      <p class="muted reveal">IPL {{ player.first_season }}{% if player.last_season != player.first_season %} – {{ player.last_season }}{% endif %} · {{ player.matches }} matches</p>
+      <div class="chips reveal">
+        {% for t in player.teams %}<a class="chip" href="/teams/{{ teams[t].short }}">{{ t }}</a>{% endfor %}
+      </div>
+    </div>
+    <div class="reveal" id="photo"></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:48px">
+  <div class="wrap">
+    <div class="grid grid-4" id="tiles"><div class="skeleton"></div></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><p class="eyebrow">Season by season</p><h2 id="chart-title">Runs per season</h2></div>
+      <div class="toggle" id="chart-toggle"></div>
+    </div>
+    <div class="card reveal"><div class="chart" id="season-chart"></div></div>
+  </div>
+</section>
+
+<section class="section dark" id="phases-section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><p class="eyebrow">By phase of the innings</p><h2>Powerplay, middle, death</h2></div>
+    </div>
+    <div class="grid grid-3" id="phases"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap grid grid-2" style="gap:48px">
+    <div><p class="eyebrow reveal">Best performances</p><div class="list" id="best"></div></div>
+    <div><p class="eyebrow reveal">Recent matches</p><div class="list" id="recent"></div></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><p class="eyebrow">Career</p><h2>Full record</h2></div>
+    </div>
+    <div class="card reveal table-wrap" id="career"></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0" id="matchups-section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><p class="eyebrow">Head to head</p><h2>Most-faced bowlers</h2></div>
+      <a class="pill light" href="/compare?a={{ player.player_id }}">Compare &rarr;</a>
+    </div>
+    <div class="card reveal table-wrap" id="matchups"></div>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+<script src="{{ url_for('static', filename='js/player.js') }}"></script>
+{% endblock %}

@@ -1,343 +1,88 @@
-/*
-const selected = document.querySelector(".selected");
-const optionsContainer = document.querySelector(".options-container");
-const searchBox = document.querySelector(".search-box input");
+// Team page: titles, record, finishing positions, rivalries, top players, totals, recent matches.
 
-const optionsList = document.querySelectorAll(".option");
+const teamKey = $("#hero").dataset.team;
 
-selected.addEventListener("click", () => {
-  optionsContainer.classList.toggle("active");
+async function loadTeam() {
+  const [d, vs, recent] = await Promise.all([
+    api(`/teams/${teamKey}`),
+    api(`/teams/${teamKey}/vs-all`),
+    api(`/matches?team=${teamKey}&limit=8`),
+  ]);
+  const t = d.team;
 
-  searchBox.value = "";
-  filterList("");
+  // Header
+  $("#logo").innerHTML = badge(t.name, "lg");
+  const first = d.seasons.length ? d.seasons[d.seasons.length - 1].season : "";
+  const last = d.seasons.length ? d.seasons[0].season : "";
+  $("#span").textContent = `IPL ${first}–${last}`;
+  $("#titles").innerHTML = d.titles.length
+    ? d.titles.map(y => `<a class="chip" href="/seasons/${y}">🏆 ${y}</a>`).join("")
+    : `<span class="muted">No titles yet</span>`;
 
-  if (optionsContainer.classList.contains("active")) {
-    searchBox.focus();
-  }
-});
+  // Key numbers
+  const playoffs = d.seasons.filter(s => s.finish !== "League stage").length;
+  const tiles = [
+    [d.record.played, "Matches"], [d.record.won, "Won"], [d.record.win_pct + "%", "Win rate"],
+    [d.titles.length, "Titles"], [d.finals.length, "Finals"], [playoffs, "Playoff seasons"],
+  ];
+  $("#tiles").innerHTML = tiles.map(([v, label]) =>
+    `<div class="card tile reveal"><b>${esc(v)}</b><span>${label}</span></div>`).join("");
 
-optionsList.forEach(o => {
-  o.addEventListener("click", () => {
-    selected.innerHTML = o.querySelector("label").innerHTML;
-    optionsContainer.classList.remove("active");
-  });
-});
-
-var go = document.getElementById("go");
-  if (go) {
-    go.addEventListener("click", function (e) {
-    var a=selected.innerHTML;
-    var t1=document.getElementById("t1");
-
-    const teamSlug = encodeURIComponent(a);
-
-
-    //t1.src=`http://127.0.0.1:5000/static/images/ipl_tlogo/${a}.svg`
-    t1.src=`/static/images/ipl_tlogo/${teamSlug}.svg`
-
-    var t2=document.getElementById("t2");
-    //t2.src=`http://127.0.0.1:5000/static/images/ipl_tlogo/${a}.svg`
-    t2.src=`/static/images/ipl_tlogo/${teamSlug}.svg`
-
-    t1.classList=[];
-    t2.classList=[];
-    var inf=document.getElementById('info')
-
-    inf.style.display='block';
-    if (a=='Select Team'){
-        alert('Select a Team')
-        document.getElementById('info').style.display='none';
-    }
-
-
-    var a = selected.textContent.trim();
-    if (a === 'Select Team') {
-        alert('Select a Team');
-        document.getElementById('info').style.display = 'none';
-        return;
-    }
-    document.getElementById('info').style.display = 'block';
-
-
-    else if (a=='Chennai Super Kings'){
-        t1.classList.add('csk-1-icon');
-        t2.classList.add('csk-1-ficon');
-
-    }
-    else if (a=='Gujarat Titans'){
-        t1.classList.add('gt-1-icon')
-        t2.classList.add('gt-1-ficon')
-    }
-    else if (a=='Delhi Capitals'){
-        t1.classList.add('dc-1-icon')
-        t2.classList.add('dc-1-ficon')
-    }
-    else if (a=='Rajasthan Royals'){
-        t1.classList.add('rr-1-icon')
-        t2.classList.add('rr-1-ficon')
-    }
-    else if (a=='Sunrisers Hyderabad'){
-        t1.classList.add('srh-1-icon')
-        t2.classList.add('srh-1-ficon')
-    }
-    else if (a=='Mumbai Indians'){
-        t1.classList.add('mi-1-icon')
-        t2.classList.add('mi-1-ficon')
-    }
-    else if (a=='Lucknow Super Giants'){
-        t1.classList.add('lsg-1-icon')
-        t2.classList.add('lsg-1-ficon')
-    }
-    else if (a=='Royal Challengers Bangalore'){
-        t1.classList.add('rcb-1-icon')
-        t2.classList.add('rcb-1-ficon')
-    }
-    else if (a=='Punjab Kings'){
-        t1.classList.add('pbks-1-icon')
-        t2.classList.add('pbks-1-ficon')
-    }
-    else if (a=='Kolkata Knight Riders'){
-        t1.classList.add('kkr-1-icon')
-        t2.classList.add('kkr-1-ficon')
-    }
-
-        $.ajax({
-        url: '/teamlabel',
-        type: 'POST',
-        data: { team: a},
-        success: function(response) {
-            // Handle the response from Flask
-            console.log('Response:', response);
-            var l1=document.getElementById("l1a")
-            newText = response['trophies'].replace(/ /g, "&nbsp;");
-            l1.innerHTML = newText;
-            var l2=document.getElementById("l2a")
-            var l3=document.getElementById("l3a")
-            var l4=document.getElementById("l4a")
-            var l5=document.getElementById("l5a")
-            var l6=document.getElementById("l6a")
-            var l7=document.getElementById("l7a")
-            var l8=document.getElementById("l8a")
-            var l9=document.getElementById("l9a")
-            var l10=document.getElementById("l10a")
-            var l11=document.getElementById("l11a")
-            var l12=document.getElementById("l12a")
-            var l13=document.getElementById("l13a")
-
-            l2.innerHTML=response['played']
-            l3.innerHTML=response['won']
-            l4.innerHTML=response['lost']
-            l5.innerHTML=response['nr']
-            l6.innerHTML=response['top4']
-            l7.innerHTML=response['max_score']
-            l8.innerHTML=response['min_score']
-            l9.innerHTML=response['hrs']
-            l10.innerHTML=response['hwt']
-            l11.innerHTML=response['or_cap'].replace(/ /g, "&nbsp;");
-            l12.innerHTML=response['pr_cap'].replace(/ /g, "&nbsp;");
-            l13.innerHTML=response['captain']
-            },
-        });
-         })
-      }
-
-
-    $.ajax({
-      url: '/teamlabel',
-      type: 'POST',
-      dataType: 'json',
-      data: { team: a },
-
-      success: function(response) {
-        console.log('Response:', response);
-
-        const setText = (id, v) => {
-          const el = document.getElementById(id);
-          if (el) el.textContent = (v ?? "").toString();
-        };
-
-        // trophies/orange/purple spacing: if you really want non-breaking spaces,
-        // do it safely on textContent by just leaving normal spaces (CSS handles nowrap already)
-        setText("l1a", response.trophies);
-        setText("l2a", response.played);
-        setText("l3a", response.won);
-        setText("l4a", response.lost);
-        setText("l5a", response.nr);
-        setText("l6a", response.top4);
-        setText("l7a", response.max_score);
-        setText("l8a", response.min_score);
-        setText("l9a", response.hrs);
-        setText("l10a", response.hwt);
-        setText("l11a", response.or_cap);
-        setText("l12a", response.pr_cap);
-        setText("l13a", response.captain);
+  // Finishing position each season (1 at the top)
+  const seasons = d.seasons.slice().reverse();
+  const accent = getComputedStyle(document.documentElement).getPropertyValue("--accent").trim();
+  const chart = echarts.init($("#finish-chart"));
+  window.addEventListener("resize", () => chart.resize());
+  chart.setOption({
+    grid: { left: 8, right: 16, top: 16, bottom: 8, containLabel: true },
+    tooltip: {
+      trigger: "axis",
+      formatter: ([pt]) => {
+        const s = seasons[pt.dataIndex];
+        return `<b>${s.season}</b> · ${s.finish}<br>League position ${s.position}<br>${s.won} won, ${s.lost} lost · ${s.points} pts`;
       },
-
-      error: function(xhr, status, err) {
-        console.error("AJAX error:", status, err, xhr.responseText);
-        alert("Could not load team stats. Check /teamlabel route.");
-        document.getElementById('info').style.display = 'none';
-      }
-    });
-
-
-searchBox.addEventListener("keyup", function(e) {
-  filterList(e.target.value);
-});
-const filterList = searchTerm => {
-  searchTerm = searchTerm.toLowerCase();
-  optionsList.forEach(option => {
-    let label = option.firstElementChild.nextElementSibling.innerText.toLowerCase();
-    if (label.indexOf(searchTerm) != -1) {
-      option.style.display = "block";
-    } else {
-      option.style.display = "none";
-    }
-  });
-};
-*/
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  /* =========================
-     DROPDOWN (SELECT TEAM)
-     ========================= */
-
-  const selected = document.getElementById("team");
-  const optionsContainer = document.querySelector(".options-container");
-  const searchBox = document.querySelector(".search-box input");
-  const optionsList = document.querySelectorAll(".option");
-
-  if (!selected || !optionsContainer || !searchBox) {
-    console.error("Team dropdown elements not found");
-    return;
-  }
-
-  selected.addEventListener("click", () => {
-    optionsContainer.classList.toggle("active");
-    searchBox.value = "";
-    filterList("");
-    if (optionsContainer.classList.contains("active")) {
-      searchBox.focus();
-    }
+    },
+    xAxis: axisStyle({ type: "category", data: seasons.map(s => s.season), splitLine: { show: false } }),
+    yAxis: axisStyle({ type: "value", inverse: true, min: 1, max: 10, interval: 1, name: "Position",
+                       nameTextStyle: { color: "#6b6b73" } }),
+    series: [{
+      type: "line", data: seasons.map(s => s.position), smooth: 0.3, symbolSize: 12,
+      lineStyle: { color: accent, width: 3 },
+      itemStyle: { color: p => seasons[p.dataIndex].finish === "Champion" ? "#f5b301" : accent },
+    }],
+    animationDuration: 1000, animationEasing: "cubicOut",
   });
 
-  optionsList.forEach((option) => {
-    option.addEventListener("click", () => {
-      const label = option.querySelector("label");
-      selected.textContent = label ? label.textContent.trim() : "Select Team";
-      optionsContainer.classList.remove("active");
-    });
-  });
+  // Record against every opponent
+  $("#vs-all").innerHTML = vs.opponents.map(o => `
+    <a class="row reveal" href="/teams/${teamKey}/vs/${o.short}">
+      ${badge(o.opponent)}
+      <span class="grow">${esc(o.opponent)}
+        <div class="bar" style="max-width:320px"><i style="--w:${o.win_pct || 0}%"></i></div>
+      </span>
+      <span class="num">${o.won}–${o.lost}<br><span class="muted" style="font-weight:500;font-size:.8rem">${o.win_pct ?? "–"}% won</span></span>
+    </a>`).join("");
 
-  searchBox.addEventListener("keyup", (e) => {
-    filterList(e.target.value);
-  });
+  // Top players
+  $("#top-bat").innerHTML = playerList(d.top_run_scorers.slice(0, 5), p => num(p.runs),
+    p => `${p.innings} inns · avg ${p.average ?? "–"} · SR ${p.strike_rate}`);
+  $("#top-bowl").innerHTML = playerList(d.top_wicket_takers.slice(0, 5), p => num(p.wickets),
+    p => `${p.innings} inns · econ ${p.economy} · avg ${p.average ?? "–"}`);
 
-  function filterList(term) {
-    const search = (term || "").toLowerCase();
-    optionsList.forEach((option) => {
-      const label = option.querySelector("label")?.innerText.toLowerCase() || "";
-      option.style.display = label.includes(search) ? "block" : "none";
-    });
-  }
+  // Highest and lowest totals
+  const totalRow = r => `
+    <a class="row reveal" href="/matches/${r.match_id}">
+      ${badge(r.opponent)}
+      <span class="grow">v ${esc(r.opponent)}<br><span class="muted" style="font-size:.85rem">${r.season}</span></span>
+      <span class="num">${esc(r.score)}</span>
+    </a>`;
+  $("#highest").innerHTML = d.highest_totals.map(totalRow).join("");
+  $("#lowest").innerHTML = d.lowest_totals.map(totalRow).join("");
 
-  /* =========================
-     GO BUTTON + TEAM LOGO
-     ========================= */
+  // Recent matches
+  $("#recent").innerHTML = recent.map(matchRow).join("");
 
-  const go = document.getElementById("go");
-  const t1 = document.getElementById("t1");
-  const t2 = document.getElementById("t2");
-  const info = document.getElementById("info");
+  reveal();
+}
 
-  if (!go || !t1 || !t2 || !info) {
-    console.error("GO button or image/info elements missing");
-    return;
-  }
-
-  go.addEventListener("click", () => {
-    const teamName = selected.textContent.trim();
-
-    if (teamName === "Select Team") {
-      alert("Select a Team");
-      info.style.display = "none";
-      return;
-    }
-
-    // Reset images
-    t1.className = "";
-    t2.className = "";
-
-    // Encode team name for URL
-    const teamSlug = encodeURIComponent(teamName);
-    t1.src = `/static/images/ipl_tlogo/${teamSlug}.svg`;
-    t2.src = `/static/images/ipl_tlogo/${teamSlug}.svg`;
-
-    // Apply team-specific CSS classes
-    const classMap = {
-      "Chennai Super Kings": ["csk-1-icon", "csk-1-ficon"],
-      "Gujarat Titans": ["gt-1-icon", "gt-1-ficon"],
-      "Delhi Capitals": ["dc-1-icon", "dc-1-ficon"],
-      "Rajasthan Royals": ["rr-1-icon", "rr-1-ficon"],
-      "Sunrisers Hyderabad": ["srh-1-icon", "srh-1-ficon"],
-      "Mumbai Indians": ["mi-1-icon", "mi-1-ficon"],
-      "Lucknow Super Giants": ["lsg-1-icon", "lsg-1-ficon"],
-      "Royal Challengers Bangalore": ["rcb-1-icon", "rcb-1-ficon"],
-      "Punjab Kings": ["pbks-1-icon", "pbks-1-ficon"],
-      "Kolkata Knight Riders": ["kkr-1-icon", "kkr-1-ficon"]
-    };
-
-    if (classMap[teamName]) {
-      t1.classList.add(classMap[teamName][0]);
-      t2.classList.add(classMap[teamName][1]);
-    }
-
-    info.style.display = "block";
-
-    /* =========================
-       AJAX – TEAM STATS
-       ========================= */
-
-    if (typeof window.$ === "undefined") {
-      alert("jQuery not loaded. Load jQuery BEFORE team.js");
-      info.style.display = "none";
-      return;
-    }
-
-    $.ajax({
-      url: "/teamlabel",
-      type: "POST",
-      dataType: "json",
-      data: { team: teamName },
-
-      success: function (response) {
-        const setText = (id, val) => {
-          const el = document.getElementById(id);
-          if (el) el.textContent = val ?? "";
-        };
-
-        setText("l1a", response.trophies);
-        setText("l2a", response.played);
-        setText("l3a", response.won);
-        setText("l4a", response.lost);
-        setText("l5a", response.nr);
-        setText("l6a", response.top4);
-        setText("l7a", response.max_score);
-        setText("l8a", response.min_score);
-        setText("l9a", response.hrs);
-        setText("l10a", response.hwt);
-        setText("l11a", response.or_cap);
-        setText("l12a", response.pr_cap);
-        setText("l13a", response.captain);
-      },
-
-      error: function (xhr, status, err) {
-        console.error("AJAX error:", status, err, xhr.responseText);
-        alert("Failed to load team stats.");
-        info.style.display = "none";
-      }
-    });
-  });
-
-});
+loadTeam();

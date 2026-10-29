@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}IPL {{ year }} · IPL Analytics{% endblock %}
+
+{% block content %}
+<section class="hero dark" id="hero" data-year="{{ year }}">
+  <div class="wrap">
+    <div class="year-pills reveal" id="years"></div>
+    <p class="eyebrow reveal" style="margin-top:48px">Indian Premier League</p>
+    <h1 class="reveal">IPL {{ year }}</h1>
+    <div class="reveal" id="champion" style="margin-top:28px"></div>
+    <div class="counters reveal" id="counters"></div>
+  </div>
+</section>
+
+{% if has_photo %}
+<section class="section" style="padding-top:48px;padding-bottom:0">
+  <div class="wrap">
+    <img class="winners-photo reveal" src="{{ url_for('static', filename='images/winners/' ~ year ~ '.webp') }}" alt="IPL {{ year }} champions celebrating">
+  </div>
+</section>
+{% endif %}
+
+<section class="section" style="padding-top:48px">
+  <div class="wrap grid grid-2" id="caps"><div class="skeleton"></div></div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal"><div><p class="eyebrow">League stage</p><h2>Points table</h2></div></div>
+    <div class="card reveal table-wrap" id="table"></div>
+  </div>
+</section>
+
+<section class="section dark">
+  <div class="wrap">
+    <div class="section-head reveal"><div><p class="eyebrow">Knockouts</p><h2>Playoffs</h2></div></div>
+    <div class="list" id="playoffs"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap grid grid-2" style="gap:48px">
+    <div><p class="eyebrow reveal">Most runs</p><div class="list" id="top-bat"></div></div>
+    <div><p class="eyebrow reveal">Most wickets</p><div class="list" id="top-bowl"></div></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><p class="eyebrow">Results</p><h2>Every match</h2></div>
+      <button class="pill light" id="show-all">Show all</button>
+    </div>
+    <div class="list" id="matches"></div>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/season.js') }}"></script>
+{% endblock %}

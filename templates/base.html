@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}IPL Analytics{% endblock %}</title>
+  <meta name="description" content="Stats for every IPL season, team and player, 2008 to 2026.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%230b0b0c'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23e11d48'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="/">IPL<span>Analytics</span></a>
+    <nav class="nav-links" id="nav-links">
+      <a href="/seasons/{{ last_season }}">Seasons</a>
+      <a href="/teams">Teams</a>
+      <a href="/records">Records</a>
+      <a href="/compare">Compare</a>
+    </nav>
+    <div class="search" data-search>
+      <input type="search" placeholder="Search players" aria-label="Search players" autocomplete="off">
+      <div class="search-results"></div>
+    </div>
+    <button class="menu-btn" id="menu-btn" aria-label="Menu">&#9776;</button>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="footer">
+    <p>Ball-by-ball data from <a href="https://cricsheet.org">Cricsheet</a>. Player photos from iplt20.com.</p>
+    <p>IPL 2008 &ndash; {{ last_season }}</p>
+  </footer>
+
+  <script>window.TEAMS = {{ teams | tojson }};</script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  {% block scripts_before %}{% endblock %}
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

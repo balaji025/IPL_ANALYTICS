@@ -1,0 +1,3 @@
+# Only needed on your own machine to run build_data.py, not on PythonAnywhere.
+duckdb>=1.1
+pandas>=2.0

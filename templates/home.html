@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero dark">
+  <div class="wrap">
+    <p class="eyebrow reveal">Indian Premier League · 2008 – {{ last_season }}</p>
+    <h1 class="reveal">Every ball.<br>Every season.<br>Every player.</h1>
+    <p class="hero-lead reveal">Stats, head-to-heads and records from {{ last_season - 2007 }} seasons of the IPL.</p>
+    <div class="search big reveal" data-search>
+      <input type="search" placeholder="Search a player, e.g. Virat Kohli" aria-label="Search players" autocomplete="off">
+      <div class="search-results"></div>
+    </div>
+    <div class="counters reveal" id="counters"></div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marquee"></div>
+</div>
+
+<section class="section">
+  <div class="wrap" id="champion"><div class="skeleton"></div></div>
+</section>
+
+<section class="section dark">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><p class="eyebrow">Season by season</p><h2>{{ last_season - 2007 }} champions</h2></div>
+    </div>
+    <div class="scroller reveal" id="seasons"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><p class="eyebrow">All-time records</p><h2>The big numbers</h2></div>
+      <a class="pill light" href="/records">All records &rarr;</a>
+    </div>
+    <div class="grid grid-3" id="records"></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><p class="eyebrow">Franchises</p><h2>The teams</h2></div>
+    </div>
+    <div class="grid grid-4" id="teams"></div>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/home.js') }}"></script>
+{% endblock %}

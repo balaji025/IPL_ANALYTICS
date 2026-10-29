@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Records · IPL Analytics{% endblock %}
+
+{% block content %}
+<section class="hero dark">
+  <div class="wrap">
+    <p class="eyebrow reveal">Leaderboards</p>
+    <h1 class="reveal">Records.</h1>
+    <p class="hero-lead reveal" id="scope">All seasons, all teams.</p>
+    <div class="chips reveal" style="margin-top:32px;gap:12px">
+      <select class="select" id="season"><option value="">All seasons</option></select>
+      <select class="select" id="team"><option value="">All teams</option></select>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap grid grid-2" style="gap:56px 48px" id="boards"><div class="skeleton"></div></div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/records.js') }}"></script>
+{% endblock %}

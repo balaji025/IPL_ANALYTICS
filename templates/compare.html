@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Compare players · IPL Analytics{% endblock %}
+
+{% block content %}
+<section class="hero dark">
+  <div class="wrap">
+    <p class="eyebrow reveal">Player vs player</p>
+    <h1 class="reveal">Compare.</h1>
+    <p class="hero-lead reveal">Pick two players to see their careers side by side, and how they fared against each other.</p>
+    <div class="pickers reveal" style="margin-top:32px">
+      <div class="search" data-search="pick" id="pick-a">
+        <input type="search" placeholder="First player" aria-label="First player" autocomplete="off">
+        <div class="search-results"></div>
+      </div>
+      <div class="search" data-search="pick" id="pick-b">
+        <input type="search" placeholder="Second player" aria-label="Second player" autocomplete="off">
+        <div class="search-results"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="result" hidden>
+  <div class="wrap">
+    <div class="compare-row reveal" id="heads" style="border:0"></div>
+    <div id="rows"></div>
+  </div>
+</section>
+
+<section class="section dark" id="duel-section" hidden>
+  <div class="wrap">
+    <div class="section-head reveal"><div><p class="eyebrow">Head to head</p><h2>When they met</h2></div></div>
+    <div class="grid grid-2" id="duel"></div>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/compare.js') }}"></script>
+{% endblock %}
