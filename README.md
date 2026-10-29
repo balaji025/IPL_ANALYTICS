@@ -2,7 +2,7 @@
 
 Stats for every Indian Premier League season from 2008 to 2026: players, teams, head-to-heads, points tables, scorecards and records.
 
-**Live site:** [balajiramesh2003.pythonanywhere.com](https://balajiramesh2003.pythonanywhere.com/)
+Live site: [can be accessed here](https://balajiramesh03.pythonanywhere.com/)
 
 - **1,243 matches**, ball by ball, from [Cricsheet](https://cricsheet.org)
 - **Full names, photos and roles** for current players, from iplt20.com
